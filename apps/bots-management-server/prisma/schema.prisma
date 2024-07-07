@@ -1,0 +1,264 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Bot {
+  id         String           @id @default(cuid())
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  platform   EnumBotPlatform?
+  name       String?
+  mediaItems Media[]
+  user       User?            @relation(fields: [userId], references: [id])
+  userId     String?
+}
+
+model SubscriptionPlan {
+  id            String         @id @default(cuid())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  name          String?
+  price         Float?
+  features      String?
+  user          User?          @relation(fields: [userId], references: [id])
+  userId        String?
+  subscriptions Subscription[]
+}
+
+model Payment {
+  id            String                    @id @default(cuid())
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime                  @updatedAt
+  amount        Float?
+  paymentMethod EnumPaymentPaymentMethod?
+  user          User?                     @relation(fields: [userId], references: [id])
+  userId        String?
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String?
+  email     String?
+  phone     String?
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
+model Media {
+  id        String              @id @default(cuid())
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+  url       String?
+  typeField EnumMediaTypeField?
+  bot       Bot?                @relation(fields: [botId], references: [id])
+  botId     String?
+}
+
+model User {
+  id                String             @id @default(cuid())
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  firstName         String?
+  lastName          String?
+  username          String             @unique
+  email             String?            @unique
+  password          String
+  roles             Json
+  payments          Payment[]
+  subscriptionPlans SubscriptionPlan[]
+  customers         Customer[]
+  bots              Bot[]
+  subscriptions     Subscription[]
+}
+
+model Invoice {
+  id              String             @id @default(cuid())
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  amountDue       Float?
+  status          EnumInvoiceStatus?
+  stripeInvoiceId String?
+  subscription    Subscription?      @relation(fields: [subscriptionId], references: [id])
+  subscriptionId  String?
+  paymentIntents  PaymentIntent[]
+}
+
+model Subscription {
+  id                   String                  @id @default(cuid())
+  createdAt            DateTime                @default(now())
+  updatedAt            DateTime                @updatedAt
+  status               EnumSubscriptionStatus?
+  startDate            DateTime?
+  endDate              DateTime?
+  stripeSubscriptionId String?
+  subscriptionPlan     SubscriptionPlan?       @relation(fields: [subscriptionPlanId], references: [id])
+  subscriptionPlanId   String?
+  user                 User?                   @relation(fields: [userId], references: [id])
+  userId               String?
+  invoices             Invoice[]
+}
+
+model PaymentIntent {
+  id                    String                   @id @default(cuid())
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  status                EnumPaymentIntentStatus?
+  amount                Float?
+  stripePaymentIntentId String?
+  invoice               Invoice?                 @relation(fields: [invoiceId], references: [id])
+  invoiceId             String?
+}
+
+model Product {
+  id          String               @id @default(cuid())
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+  description String?
+  quantity    Int?
+  name        String?
+  price       Float?
+  category    EnumProductCategory?
+  imageUrl    String?
+}
+
+model Report {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  entityName  String?
+  periodStart DateTime?
+  periodEnd   DateTime?
+  summary     Json?
+}
+
+model Notification {
+  id        String                  @id @default(cuid())
+  createdAt DateTime                @default(now())
+  updatedAt DateTime                @updatedAt
+  title     String?
+  content   String?
+  status    EnumNotificationStatus?
+  recipient String?
+}
+
+model Message {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  content   String?
+  sender    String?
+  recipient String?
+  timestamp DateTime?
+}
+
+model FlowStep {
+  id                 String                 @id @default(cuid())
+  createdAt          DateTime               @default(now())
+  updatedAt          DateTime               @updatedAt
+  order              Int?
+  typeField          EnumFlowStepTypeField?
+  content            String?
+  conversationFlow   ConversationFlow?      @relation(fields: [conversationFlowId], references: [id])
+  conversationFlowId String?
+}
+
+model ConversationFlow {
+  id          String     @id @default(cuid())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  name        String?
+  description String?
+  flowSteps   FlowStep[]
+}
+
+model IntegrationService {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  apiEndpoint String?
+  apiKey      String?
+  description String?
+  name        String?
+}
+
+model Suscripcion {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Usuario {
+  id                String   @id @default(cuid())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  nombre            String?
+  correoElectronico String?
+  contraseA         String?
+}
+
+model Inventario {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Venta {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Cliente {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ChatBot {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum EnumBotPlatform {
+  Option1
+}
+
+enum EnumPaymentPaymentMethod {
+  Option1
+}
+
+enum EnumMediaTypeField {
+  Option1
+}
+
+enum EnumInvoiceStatus {
+  Option1
+}
+
+enum EnumSubscriptionStatus {
+  Option1
+}
+
+enum EnumPaymentIntentStatus {
+  Option1
+}
+
+enum EnumProductCategory {
+  Option1
+}
+
+enum EnumNotificationStatus {
+  Option1
+}
+
+enum EnumFlowStepTypeField {
+  Option1
+}
