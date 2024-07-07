@@ -14,8 +14,10 @@ import { NotificationModule } from "./notification/notification.module";
 import { MessageModule } from "./message/message.module";
 import { FlowStepModule } from "./flowStep/flowStep.module";
 import { ConversationFlowModule } from "./conversationFlow/conversationFlow.module";
+import { IntegrationServiceModule } from "./integrationService/integrationService.module";
 import { AnalyticsModule } from "./Analytics/analytics.module";
 import { ConversationFlowModuleModule } from "./ConversationFlowModule/conversationflowmodule.module";
+import { IntegrationServiceModuleModule } from "./IntegrationServiceModule/integrationservicemodule.module";
 import { StripeModuleModule } from "./StripeModule/stripemodule.module";
 import { SubscriptionManagementModule } from "./SubscriptionManagement/subscriptionmanagement.module";
 import { HealthModule } from "./health/health.module";
@@ -52,8 +54,10 @@ import { AuthModule } from "./auth/auth.module";
     MessageModule,
     FlowStepModule,
     ConversationFlowModule,
+    IntegrationServiceModule,
     AnalyticsModule,
     ConversationFlowModuleModule,
+    IntegrationServiceModuleModule,
     StripeModuleModule,
     SubscriptionManagementModule,
     HealthModule,

@@ -178,6 +178,16 @@ model ConversationFlow {
   flowSteps   FlowStep[]
 }
 
+model IntegrationService {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  apiEndpoint String?
+  apiKey      String?
+  description String?
+  name        String?
+}
+
 enum EnumBotPlatform {
   Option1
 }

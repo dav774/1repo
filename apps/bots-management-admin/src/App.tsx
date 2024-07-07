@@ -65,6 +65,10 @@ import { ConversationFlowList } from "./conversationFlow/ConversationFlowList";
 import { ConversationFlowCreate } from "./conversationFlow/ConversationFlowCreate";
 import { ConversationFlowEdit } from "./conversationFlow/ConversationFlowEdit";
 import { ConversationFlowShow } from "./conversationFlow/ConversationFlowShow";
+import { IntegrationServiceList } from "./integrationService/IntegrationServiceList";
+import { IntegrationServiceCreate } from "./integrationService/IntegrationServiceCreate";
+import { IntegrationServiceEdit } from "./integrationService/IntegrationServiceEdit";
+import { IntegrationServiceShow } from "./integrationService/IntegrationServiceShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -195,6 +199,13 @@ const App = (): React.ReactElement => {
           edit={ConversationFlowEdit}
           create={ConversationFlowCreate}
           show={ConversationFlowShow}
+        />
+        <Resource
+          name="IntegrationService"
+          list={IntegrationServiceList}
+          edit={IntegrationServiceEdit}
+          create={IntegrationServiceCreate}
+          show={IntegrationServiceShow}
         />
       </Admin>
     </div>
