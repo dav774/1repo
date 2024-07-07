@@ -9,6 +9,10 @@ import { SubscriptionModule } from "./subscription/subscription.module";
 import { InvoiceModule } from "./invoice/invoice.module";
 import { PaymentIntentModule } from "./paymentIntent/paymentIntent.module";
 import { ProductModule } from "./product/product.module";
+import { ReportModule } from "./report/report.module";
+import { NotificationModule } from "./notification/notification.module";
+import { MessageModule } from "./message/message.module";
+import { AnalyticsModule } from "./Analytics/analytics.module";
 import { StripeModuleModule } from "./StripeModule/stripemodule.module";
 import { SubscriptionManagementModule } from "./SubscriptionManagement/subscriptionmanagement.module";
 import { HealthModule } from "./health/health.module";
@@ -40,6 +44,10 @@ import { AuthModule } from "./auth/auth.module";
     InvoiceModule,
     PaymentIntentModule,
     ProductModule,
+    ReportModule,
+    NotificationModule,
+    MessageModule,
+    AnalyticsModule,
     StripeModuleModule,
     SubscriptionManagementModule,
     HealthModule,
