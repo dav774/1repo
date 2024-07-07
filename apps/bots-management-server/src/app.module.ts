@@ -5,14 +5,17 @@ import { PaymentModule } from "./payment/payment.module";
 import { CustomerModule } from "./customer/customer.module";
 import { MediaModule } from "./media/media.module";
 import { UserModule } from "./user/user.module";
-import { SubscriptionModule } from "./subscription/subscription.module";
 import { InvoiceModule } from "./invoice/invoice.module";
+import { SubscriptionModule } from "./subscription/subscription.module";
 import { PaymentIntentModule } from "./paymentIntent/paymentIntent.module";
 import { ProductModule } from "./product/product.module";
 import { ReportModule } from "./report/report.module";
 import { NotificationModule } from "./notification/notification.module";
 import { MessageModule } from "./message/message.module";
+import { FlowStepModule } from "./flowStep/flowStep.module";
+import { ConversationFlowModule } from "./conversationFlow/conversationFlow.module";
 import { AnalyticsModule } from "./Analytics/analytics.module";
+import { ConversationFlowModuleModule } from "./ConversationFlowModule/conversationflowmodule.module";
 import { StripeModuleModule } from "./StripeModule/stripemodule.module";
 import { SubscriptionManagementModule } from "./SubscriptionManagement/subscriptionmanagement.module";
 import { HealthModule } from "./health/health.module";
@@ -40,14 +43,17 @@ import { AuthModule } from "./auth/auth.module";
     CustomerModule,
     MediaModule,
     UserModule,
-    SubscriptionModule,
     InvoiceModule,
+    SubscriptionModule,
     PaymentIntentModule,
     ProductModule,
     ReportModule,
     NotificationModule,
     MessageModule,
+    FlowStepModule,
+    ConversationFlowModule,
     AnalyticsModule,
+    ConversationFlowModuleModule,
     StripeModuleModule,
     SubscriptionManagementModule,
     HealthModule,

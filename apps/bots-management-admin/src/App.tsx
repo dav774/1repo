@@ -29,14 +29,14 @@ import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
 import { UserShow } from "./user/UserShow";
-import { SubscriptionList } from "./subscription/SubscriptionList";
-import { SubscriptionCreate } from "./subscription/SubscriptionCreate";
-import { SubscriptionEdit } from "./subscription/SubscriptionEdit";
-import { SubscriptionShow } from "./subscription/SubscriptionShow";
 import { InvoiceList } from "./invoice/InvoiceList";
 import { InvoiceCreate } from "./invoice/InvoiceCreate";
 import { InvoiceEdit } from "./invoice/InvoiceEdit";
 import { InvoiceShow } from "./invoice/InvoiceShow";
+import { SubscriptionList } from "./subscription/SubscriptionList";
+import { SubscriptionCreate } from "./subscription/SubscriptionCreate";
+import { SubscriptionEdit } from "./subscription/SubscriptionEdit";
+import { SubscriptionShow } from "./subscription/SubscriptionShow";
 import { PaymentIntentList } from "./paymentIntent/PaymentIntentList";
 import { PaymentIntentCreate } from "./paymentIntent/PaymentIntentCreate";
 import { PaymentIntentEdit } from "./paymentIntent/PaymentIntentEdit";
@@ -57,6 +57,14 @@ import { MessageList } from "./message/MessageList";
 import { MessageCreate } from "./message/MessageCreate";
 import { MessageEdit } from "./message/MessageEdit";
 import { MessageShow } from "./message/MessageShow";
+import { FlowStepList } from "./flowStep/FlowStepList";
+import { FlowStepCreate } from "./flowStep/FlowStepCreate";
+import { FlowStepEdit } from "./flowStep/FlowStepEdit";
+import { FlowStepShow } from "./flowStep/FlowStepShow";
+import { ConversationFlowList } from "./conversationFlow/ConversationFlowList";
+import { ConversationFlowCreate } from "./conversationFlow/ConversationFlowCreate";
+import { ConversationFlowEdit } from "./conversationFlow/ConversationFlowEdit";
+import { ConversationFlowShow } from "./conversationFlow/ConversationFlowShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -126,18 +134,18 @@ const App = (): React.ReactElement => {
           show={UserShow}
         />
         <Resource
-          name="Subscription"
-          list={SubscriptionList}
-          edit={SubscriptionEdit}
-          create={SubscriptionCreate}
-          show={SubscriptionShow}
-        />
-        <Resource
           name="Invoice"
           list={InvoiceList}
           edit={InvoiceEdit}
           create={InvoiceCreate}
           show={InvoiceShow}
+        />
+        <Resource
+          name="Subscription"
+          list={SubscriptionList}
+          edit={SubscriptionEdit}
+          create={SubscriptionCreate}
+          show={SubscriptionShow}
         />
         <Resource
           name="PaymentIntent"
@@ -173,6 +181,20 @@ const App = (): React.ReactElement => {
           edit={MessageEdit}
           create={MessageCreate}
           show={MessageShow}
+        />
+        <Resource
+          name="FlowStep"
+          list={FlowStepList}
+          edit={FlowStepEdit}
+          create={FlowStepCreate}
+          show={FlowStepShow}
+        />
+        <Resource
+          name="ConversationFlow"
+          list={ConversationFlowList}
+          edit={ConversationFlowEdit}
+          create={ConversationFlowCreate}
+          show={ConversationFlowShow}
         />
       </Admin>
     </div>

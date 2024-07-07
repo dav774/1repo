@@ -181,61 +181,61 @@
   },
   {
     "role": "user",
-    "resource": "Subscription",
+    "resource": "Invoice",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Subscription",
+    "resource": "Invoice",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Subscription",
+    "resource": "Invoice",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Subscription",
+    "resource": "Invoice",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Subscription",
+    "resource": "Invoice",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Invoice",
+    "resource": "Subscription",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Invoice",
+    "resource": "Subscription",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Invoice",
+    "resource": "Subscription",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Invoice",
+    "resource": "Subscription",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Invoice",
+    "resource": "Subscription",
     "action": "read:any",
     "attributes": "*"
   },
@@ -386,6 +386,66 @@
   {
     "role": "user",
     "resource": "Message",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "FlowStep",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "FlowStep",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "FlowStep",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "FlowStep",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "FlowStep",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationFlow",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationFlow",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationFlow",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationFlow",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationFlow",
     "action": "read:any",
     "attributes": "*"
   }

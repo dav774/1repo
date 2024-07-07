@@ -78,6 +78,18 @@ model User {
   subscriptions     Subscription[]
 }
 
+model Invoice {
+  id              String             @id @default(cuid())
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  amountDue       Float?
+  status          EnumInvoiceStatus?
+  stripeInvoiceId String?
+  subscription    Subscription?      @relation(fields: [subscriptionId], references: [id])
+  subscriptionId  String?
+  paymentIntents  PaymentIntent[]
+}
+
 model Subscription {
   id                   String                  @id @default(cuid())
   createdAt            DateTime                @default(now())
@@ -91,18 +103,6 @@ model Subscription {
   user                 User?                   @relation(fields: [userId], references: [id])
   userId               String?
   invoices             Invoice[]
-}
-
-model Invoice {
-  id              String             @id @default(cuid())
-  createdAt       DateTime           @default(now())
-  updatedAt       DateTime           @updatedAt
-  amountDue       Float?
-  status          EnumInvoiceStatus?
-  stripeInvoiceId String?
-  subscription    Subscription?      @relation(fields: [subscriptionId], references: [id])
-  subscriptionId  String?
-  paymentIntents  PaymentIntent[]
 }
 
 model PaymentIntent {
@@ -158,6 +158,26 @@ model Message {
   timestamp DateTime?
 }
 
+model FlowStep {
+  id                 String                 @id @default(cuid())
+  createdAt          DateTime               @default(now())
+  updatedAt          DateTime               @updatedAt
+  order              Int?
+  typeField          EnumFlowStepTypeField?
+  content            String?
+  conversationFlow   ConversationFlow?      @relation(fields: [conversationFlowId], references: [id])
+  conversationFlowId String?
+}
+
+model ConversationFlow {
+  id          String     @id @default(cuid())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  name        String?
+  description String?
+  flowSteps   FlowStep[]
+}
+
 enum EnumBotPlatform {
   Option1
 }
@@ -170,11 +190,11 @@ enum EnumMediaTypeField {
   Option1
 }
 
-enum EnumSubscriptionStatus {
+enum EnumInvoiceStatus {
   Option1
 }
 
-enum EnumInvoiceStatus {
+enum EnumSubscriptionStatus {
   Option1
 }
 
@@ -187,5 +207,9 @@ enum EnumProductCategory {
 }
 
 enum EnumNotificationStatus {
+  Option1
+}
+
+enum EnumFlowStepTypeField {
   Option1
 }
