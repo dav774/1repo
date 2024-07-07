@@ -15,6 +15,12 @@ import { MessageModule } from "./message/message.module";
 import { FlowStepModule } from "./flowStep/flowStep.module";
 import { ConversationFlowModule } from "./conversationFlow/conversationFlow.module";
 import { IntegrationServiceModule } from "./integrationService/integrationService.module";
+import { SuscripcionModule } from "./suscripcion/suscripcion.module";
+import { UsuarioModule } from "./usuario/usuario.module";
+import { InventarioModule } from "./inventario/inventario.module";
+import { VentaModule } from "./venta/venta.module";
+import { ClienteModule } from "./cliente/cliente.module";
+import { ChatBotModule } from "./chatBot/chatBot.module";
 import { AnalyticsModule } from "./Analytics/analytics.module";
 import { ConversationFlowModuleModule } from "./ConversationFlowModule/conversationflowmodule.module";
 import { IntegrationServiceModuleModule } from "./IntegrationServiceModule/integrationservicemodule.module";
@@ -55,6 +61,12 @@ import { AuthModule } from "./auth/auth.module";
     FlowStepModule,
     ConversationFlowModule,
     IntegrationServiceModule,
+    SuscripcionModule,
+    UsuarioModule,
+    InventarioModule,
+    VentaModule,
+    ClienteModule,
+    ChatBotModule,
     AnalyticsModule,
     ConversationFlowModuleModule,
     IntegrationServiceModuleModule,

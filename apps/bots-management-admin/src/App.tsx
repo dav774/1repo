@@ -69,6 +69,30 @@ import { IntegrationServiceList } from "./integrationService/IntegrationServiceL
 import { IntegrationServiceCreate } from "./integrationService/IntegrationServiceCreate";
 import { IntegrationServiceEdit } from "./integrationService/IntegrationServiceEdit";
 import { IntegrationServiceShow } from "./integrationService/IntegrationServiceShow";
+import { SuscripcionList } from "./suscripcion/SuscripcionList";
+import { SuscripcionCreate } from "./suscripcion/SuscripcionCreate";
+import { SuscripcionEdit } from "./suscripcion/SuscripcionEdit";
+import { SuscripcionShow } from "./suscripcion/SuscripcionShow";
+import { UsuarioList } from "./usuario/UsuarioList";
+import { UsuarioCreate } from "./usuario/UsuarioCreate";
+import { UsuarioEdit } from "./usuario/UsuarioEdit";
+import { UsuarioShow } from "./usuario/UsuarioShow";
+import { InventarioList } from "./inventario/InventarioList";
+import { InventarioCreate } from "./inventario/InventarioCreate";
+import { InventarioEdit } from "./inventario/InventarioEdit";
+import { InventarioShow } from "./inventario/InventarioShow";
+import { VentaList } from "./venta/VentaList";
+import { VentaCreate } from "./venta/VentaCreate";
+import { VentaEdit } from "./venta/VentaEdit";
+import { VentaShow } from "./venta/VentaShow";
+import { ClienteList } from "./cliente/ClienteList";
+import { ClienteCreate } from "./cliente/ClienteCreate";
+import { ClienteEdit } from "./cliente/ClienteEdit";
+import { ClienteShow } from "./cliente/ClienteShow";
+import { ChatBotList } from "./chatBot/ChatBotList";
+import { ChatBotCreate } from "./chatBot/ChatBotCreate";
+import { ChatBotEdit } from "./chatBot/ChatBotEdit";
+import { ChatBotShow } from "./chatBot/ChatBotShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -206,6 +230,48 @@ const App = (): React.ReactElement => {
           edit={IntegrationServiceEdit}
           create={IntegrationServiceCreate}
           show={IntegrationServiceShow}
+        />
+        <Resource
+          name="Suscripcion"
+          list={SuscripcionList}
+          edit={SuscripcionEdit}
+          create={SuscripcionCreate}
+          show={SuscripcionShow}
+        />
+        <Resource
+          name="Usuario"
+          list={UsuarioList}
+          edit={UsuarioEdit}
+          create={UsuarioCreate}
+          show={UsuarioShow}
+        />
+        <Resource
+          name="Inventario"
+          list={InventarioList}
+          edit={InventarioEdit}
+          create={InventarioCreate}
+          show={InventarioShow}
+        />
+        <Resource
+          name="Venta"
+          list={VentaList}
+          edit={VentaEdit}
+          create={VentaCreate}
+          show={VentaShow}
+        />
+        <Resource
+          name="Cliente"
+          list={ClienteList}
+          edit={ClienteEdit}
+          create={ClienteCreate}
+          show={ClienteShow}
+        />
+        <Resource
+          name="ChatBot"
+          list={ChatBotList}
+          edit={ChatBotEdit}
+          create={ChatBotCreate}
+          show={ChatBotShow}
         />
       </Admin>
     </div>
